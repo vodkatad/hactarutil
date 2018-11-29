@@ -1,0 +1,8 @@
+#!/bin/bash
+#snakemake -j 5 -p all_conts --cluster-config ../../local/src/hactar.json --cluster "sbatch --mail-user={cluster.mail-user} --mail-type={cluster.mail-type} --partition={cluster.partition} --nodes={cluster.nodes} --job-name={cluster.job-name} --output={cluster.output} --error={cluster.error} --time={cluster.time} --mem=120000 --ntasks=12"
+
+if [ "$1" = "-h" ]; then
+	echo njob target cluster.json time mem ntasks
+else
+	snakemake -j $1 -p $2 $7 --cluster-config $3 --cluster "sbatch --mail-user={cluster.mail-user} --mail-type={cluster.mail-type} --partition={cluster.partition} --nodes={cluster.nodes} --job-name={cluster.job-name} --output={cluster.output} --error={cluster.error} --time=$4 --mem=$5 --ntasks=$6"
+fi

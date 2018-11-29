@@ -1,0 +1,2 @@
+#!/bin/bash
+sstat --format=JobID,AveCPU,AveCPUFreq,MinCPUTask,MinCPUNode,MinCPU,AveRSS,MaxRSS,AveVMSize,Nodelist,NTask,AveDiskRead,AveDiskWrite,ConsumedEnergy -j ${1}.batch --allsteps
